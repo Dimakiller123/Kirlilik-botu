@@ -1,0 +1,2 @@
+# Kirlilik-botu
+sdfghjgfdsw
