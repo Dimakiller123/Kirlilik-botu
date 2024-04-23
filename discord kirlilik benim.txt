@@ -1,0 +1,26 @@
+import discord
+
+# İstekler değişkeni botun yetkilerini saklar
+intents = discord.Intents.default()
+# Mesaj okuma yetkisini etkinleştirme
+intents.message_content = True
+# Bir bot oluşturma ve yetkileri aktarma
+client = discord.Client(intents=intents)
+@client.event
+async def on_ready():
+    print(f'{client.user} olarak giriş yapıldı')
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    if message.content.startswith('$Su kirliliği hakında bilgi ver'):
+        await message.channel.send("Su kirliliği, su kaynaklarının (nehirler, göller, akarsular, yeraltı suyu gibi) zararlı maddelerle kirlenmesi veya kontaminasyonu durumudur. Bu zararlı maddeler çeşitli kaynaklardan gelir, bunlar arasında endüstriyel atıklar, tarım ilaçları, evsel atıklar, petrol sızıntıları, maden atıkları ve yetersiz kanalizasyon sistemleri bulunur. Su kirliliği, suyun kullanımını ve içme suyu kalitesini olumsuz yönde etkileyebilir, çevresel ekosistemlere zarar verebilir ve insan sağlığına ciddi tehditler oluşturabilir.")
+    elif message.content.startswith('$Hava kirliliği hakında bilgi ver'):
+        await message.channel.send("Hava kirliliği, atmosferde bulunan zararlı veya istenmeyen maddelerin varlığı veya miktarı nedeniyle hava kalitesinin düşmesine neden olan bir durumdur. Bu zararlı maddeler genellikle endüstriyel faaliyetler, taşıt egzozları, enerji üretimi ve evsel yakıtlar gibi insan faaliyetlerinden kaynaklanır. Hava kirliliği, insan sağlığına, bitki örtüsüne, su kaynaklarına ve ekosistemlere zarar verir.")
+    if message.content.startswith('$Toprak kirliliği hakında bilgi ver'):
+        await message.channel.send("Toprak kirliliği, toprakta istenmeyen veya zararlı maddelerin varlığı veya miktarı nedeniyle toprak kalitesinin bozulması durumudur. Bu maddeler genellikle endüstriyel faaliyetler, tarım ilaçları, atık bertarafı, madencilik ve petrol sızıntıları gibi insan faaliyetlerinden kaynaklanır. Toprak kirliliği, tarım verimliliğini azaltabilir, su kaynaklarını kirletebilir, ekosistemleri etkileyebilir ve insan sağlığına zarar verebilir.")
+    elif message.content.startswith('$Ses kirliliği hakında bilgi ver'):
+        await message.channel.send("Ses kirliliği, çevrede istenmeyen veya rahatsız edici düzeyde sesin bulunması durumudur. Bu sesler genellikle insan faaliyetleri, endüstriyel işletmeler, trafik, inşaat çalışmaları, eğlence etkinlikleri, havaalanları ve komşu gürültüsü gibi kaynaklardan kaynaklanır. Sürekli maruz kalındığında, ses kirliliği ciddi sağlık sorunlarına, uyku bozukluklarına, stres, işitme kaybı ve konsantrasyon eksikliği gibi etkilere yol açabilir")
+    elif message.content.startswith('$Işık kirliliği hakında bilgi ver'):
+        await message.channel.send("Işık kirliliği, gece gökyüzünün ve çevrenin gereğinden fazla aydınlatılması sonucu oluşan istenmeyen veya gereksiz ışık yayılması durumudur. Bu durum, şehirlerdeki aydınlatma, reklam panoları, sokak lambaları, fabrikaların ve işletmelerin aydınlatması gibi yapay ışık kaynaklarından kaynaklanabilir. Işık kirliliği, astronomik gözlemleri zorlaştırabilir, uyku düzenini bozabilir, doğal yaşamı etkileyebilir ve enerji israfına yol açabilir.")
+client.run("discord bot tokeni buraya")
